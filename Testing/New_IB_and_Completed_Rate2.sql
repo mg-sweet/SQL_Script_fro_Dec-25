@@ -1,0 +1,17 @@
+WITH CTE_OB AS (
+SELECT * FROM [10.Oct_Data_25].[dbo].[OB_MDY]
+UNION ALL
+SELECT * FROM [10.Oct_Data_25].[dbo].[OB_NPW]
+UNION ALL
+SELECT * FROM [10.Oct_Data_25].[dbo].[OB_YGN_UPDATE]
+UNION ALL
+SELECT * FROM [10.Oct_Data_25].[dbo].[OB_REG]
+
+)
+SELECT
+TOP(100)
+
+FROM
+CTE_OB
+
+SELECT TOP(1000) * FROM [10.Oct_Data_25].[dbo].[IB_MDY]
