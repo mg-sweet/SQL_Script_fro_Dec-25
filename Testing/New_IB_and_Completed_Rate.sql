@@ -1,15 +1,16 @@
 WITH CTE_IB AS (
-SELECT * FROM [10.Oct_Data_25].[dbo].IB_MDY
+SELECT * FROM [11.Nov_Data_25].[dbo].IB_MDY
 UNION ALL
-SELECT * FROM [10.Oct_Data_25].[dbo].IB_NPW
+SELECT * FROM [11.Nov_Data_25].[dbo].IB_NPW
 UNION ALL
-SELECT * FROM [10.Oct_Data_25].[dbo].IB_REG_UPDATE
+SELECT * FROM [11.Nov_Data_25].[dbo].IB_REG
 UNION ALL
-SELECT * FROM [10.Oct_Data_25].[dbo].IB_YGN
+SELECT * FROM [11.Nov_Data_25].[dbo].IB_YGN
 
 )
 SELECT
 	--[Waybill No#],
+    Month([Date]) as Month,
 	[To City]
 	,[Destination Branch]
 ,COUNT([Destination Branch]) AS Total
@@ -25,5 +26,6 @@ WHERE
     ([To City] = 'mawlamyine'    AND [Destination Branch] = 'MLM')
 
 			--and [Destination Branch] is not null
-			--and [Consignment Status] = 'completed'
-GROUP BY [Destination Branch], [To City] 
+			and [Consignment Status] = 'completed'
+           
+GROUP BY [Destination Branch], [To City], Date

@@ -1,11 +1,11 @@
 with CTE_OB as (
-select [Date],[Customer Reference No#],[From City],[Service] from [10.Oct_Data_25].[dbo].[OB_MDY]
+select * from [12.Dec_Data_25].[dbo].[OB_MDY]
 union all
-select [Date],[Customer Reference No#],[From City],[Service] from [10.Oct_Data_25].[dbo].[OB_NPW]
+select * from [12.Dec_Data_25].[dbo].[OB_NPW]
 union all
-select [Date],[Customer Reference No#],[From City],[Service] from [10.Oct_Data_25].[dbo].[OB_REG]
+select * from [12.Dec_Data_25].[dbo].[OB_REG]
 union all
-select [Date],[Customer Reference No#],[From City],[Service] from [10.Oct_Data_25].[dbo].[OB_YGN_UPDATE]
+select * from [12.Dec_Data_25].[dbo].[OB_YGN]
 )
 select
 Month([Date]) as Month
@@ -22,4 +22,5 @@ when SUBSTRING([Customer Reference No#],1,1) is NULL then 'I'
 when SUBSTRING([Customer Reference No#],1,1)='C' then 'I'
 end as Customer_Type ,count(*) as Total
 from CTE_OB
+--WHERE [Customer Reference No#] IS NULL AND [Waybill No#] IS NULL
 group by [Date],[From City],[Customer Reference No#]

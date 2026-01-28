@@ -1,17 +1,17 @@
 with CTE_IB AS (
-    SELECT * FROM [10.Oct_Data_25].[dbo].[IB_MDY]
+    SELECT * FROM [11.Nov_Data_25].[dbo].[IB_MDY]
 	where [Consignment Status]='completed'
     UNION ALL
-    SELECT * FROM [10.Oct_Data_25].[dbo].[IB_NPW]
+    SELECT * FROM [11.Nov_Data_25].[dbo].[IB_NPW]
 	where [Consignment Status]='completed'
     UNION ALL
-    SELECT * FROM [10.Oct_Data_25].[dbo].[IB_YGN]
+    SELECT * FROM [11.Nov_Data_25].[dbo].[IB_YGN]
 	where [Consignment Status]='completed'
     UNION ALL
-    SELECT * FROM [10.Oct_Data_25].[dbo].[IB_REG_UPDATE]
+    SELECT * FROM [11.Nov_Data_25].[dbo].[IB_REG]
 	where [Consignment Status]='completed'
 )
-select 'Oct' as Month,
+select 'Dec' as Month,
 [Deliveryman],
 [To City],[Consignment Status],count(*) as Total
 from CTE_IB

@@ -18,7 +18,7 @@ WITH BaseData AS (
             WHEN DATEDIFF(MINUTE, [Assigned Time], [Completed Time]) BETWEEN 11 AND 15 THEN 'Between 11 & 15 Min'
             ELSE 'Above 15 Min'
         END AS Min_Diff_Group
-    FROM [12.Dec 25].[dbo].[4 Dec Deli]
+    FROM [1.Jan 26].[dbo].[26 Jan Deli]
     WHERE [Status] = 'Completed'
       AND [Branch] NOT LIKE 'YGN%'
 

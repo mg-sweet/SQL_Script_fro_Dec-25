@@ -5,7 +5,7 @@ partition by [Waybill]
 order by  
 case when [Status]='Completed' then 1 else 2 end ,
 [Waybill] asc) as RN
-from [12.Dec 25].[dbo].[4 Dec Deli]
+from [1.Jan 26].[dbo].[26 Jan Deli]
 )
 DELETE FROM RankedRows
 where RN>1
@@ -13,4 +13,3 @@ where RN>1
 --from
 --RankedRows
 --where RN>1
-

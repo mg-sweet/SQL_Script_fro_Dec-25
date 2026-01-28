@@ -8,7 +8,7 @@ select  [Date]
     ,[Service Type]
     ,[Status]
 	FROM 
-		[12.Dec 25].[dbo].[4 Dec OB]
+		[12.Dec 25].[dbo].[21 Dec OB]
 	WHERE
 	[From City] IN (
 	--BGO

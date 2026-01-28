@@ -19,7 +19,7 @@ select
     ,[Service Type]
     ,[Status]
 from 
-	[12.Dec 25].[dbo].[3 Dec OB]
+	[12.Dec 25].[dbo].[21 Dec OB]
 where
 	[From City]
 	in (

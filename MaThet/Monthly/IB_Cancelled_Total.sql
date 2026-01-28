@@ -11,7 +11,7 @@ with CTE_IB AS (
     SELECT * FROM [10.Oct_Data_25].[dbo].[IB_REG_UPDATE]
 	where [Consignment Status]='Cancelled'
 )
-select 'Oct' as Month,
+select 'Dec' as Month,
 [To City],[Consignment Status],count(*) as Total
 from CTE_IB
 group by [To City],[Consignment Status]

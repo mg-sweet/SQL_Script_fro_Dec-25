@@ -1,35 +1,35 @@
 with CTE_OB as (
-select * from [OB_MDY]
+select * from [12.Dec_Data_25].[dbo].[OB_MDY]
 union
-select * from [OB_NPW]
+select * from [12.Dec_Data_25].[dbo].[OB_NPW]
 union 
-select * from [OB_REG]
+select * from [12.Dec_Data_25].[dbo].[OB_REG]
 union 
-select * from [OB_YGN]),
+select * from [12.Dec_Data_25].[dbo].[OB_YGN]),
 CTE_IB as ( 
 SELECT [Waybill No#],[Destination Branch],
 [Delivery Completion Datetime],[Consignment Status]
- FROM [IB_MDY]
+ FROM [12.Dec_Data_25].[dbo].[IB_MDY]
 where [Consignment Status]='Completed'
 UNION ALL
 SELECT [Waybill No#],[Destination Branch],
 [Delivery Completion Datetime],[Consignment Status]
-FROM [IB_NPW]
+FROM [12.Dec_Data_25].[dbo].[IB_NPW]
 where [Consignment Status]='Completed'
 UNION ALL
 SELECT [Waybill No#],[Destination Branch],
 [Delivery Completion Datetime],[Consignment Status]
-FROM [IB_REG]
+FROM [12.Dec_Data_25].[dbo].[IB_REG]
 where [Consignment Status]='Completed'
 UNION ALL
 SELECT [Waybill No#],[Destination Branch],
 [Delivery Completion Datetime],[Consignment Status]
-FROM [IB_YGN]
+FROM [12.Dec_Data_25].[dbo].[IB_YGN]
 where [Consignment Status]='Completed'	
 UNION ALL	
 select  [Waybill No#],[Destination Branch],
 [Delivery Completion Datetime],[Consignment Status]
-from [dbo].[1_10 July Deli]
+from [12.Dec_Data_25].[dbo].[4_10 Jan Deli]
 where [Consignment Status]='Completed'		
 )
 select O.[Date],O.[Waybill No#],O.[From City],O.[To City],
@@ -44,6 +44,6 @@ where O.[From City] in
 --'Naypyidaw','Tharwutti','Taunggyi') 
 --('Yangon','Taikkyi','Twantay','Hmawbi','Kawhmu','Hlegu','Thongwa','Kyauktan','Kungyangone','Ahpyauk')
 ('Mandalay','Patheingyi','Amarapura','Myintnge','Ohn Chaw',
-'Naypyidaw','Tharwutti','Taunggyi') 
+'Naypyidaw','Tharwutti','Taunggyi')
 and I.[Consignment Status]='Completed'
 order by O.[Date] asc

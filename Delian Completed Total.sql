@@ -1,44 +1,44 @@
 ﻿with CTE_Table as (
-SELECT * FROM Jun_Data.[dbo].[IB_MDY]
+SELECT * FROM [9.Sep_Data_25].[dbo].[IB_MDY]
 WHERE [Consignment Status]='Completed'
 UNION 
-SELECT * FROM Jun_Data.[dbo].[IB_NPW]
+SELECT * FROM [9.Sep_Data_25].[dbo].[IB_NPW]
 WHERE [Consignment Status]='Completed'
 UNION 
-SELECT * FROM Jun_Data.[dbo].[IB_REG]
+SELECT * FROM [9.Sep_Data_25].[dbo].[IB_REG]
 WHERE [Consignment Status]='Completed'
 UNION 
-SELECT * FROM Jun_Data.[dbo].[IB_YGN]
+SELECT * FROM [9.Sep_Data_25].[dbo].[IB_YGN]
 WHERE [Consignment Status]='Completed'
 )
-SELECT 'Jun' as Month,[Destination Branch],[Deliveryman],
+SELECT 'Sep' as Month,[Destination Branch],[Deliveryman],
 [Consignment Status],count(*) as Total
 FROM CTE_Table
-WHERE [Destination Branch] like 'HAN'
-	AND
-	[Deliveryman] = 'AungYeKyawHAN'
+WHERE [Destination Branch] = 'ysg'
+	--AND
+	--[Deliveryman] = 'AungYeKyawHAN'
 GROUP BY [Destination Branch],[Deliveryman],[Consignment Status]
 ORDER BY [Destination Branch] asc
 
 
 
 with CTE_Table as (
-SELECT * FROM July_Data.[dbo].[IB_MDY]
+SELECT * FROM [10.Oct_Data_25].[dbo].[IB_MDY]
 WHERE [Consignment Status]='Completed'
 UNION 
-SELECT * FROM July_Data.[dbo].[IB_NPW]
+SELECT * FROM [10.Oct_Data_25].[dbo].[IB_NPW]
 WHERE [Consignment Status]='Completed'
 UNION 
-SELECT * FROM July_Data.[dbo].[IB_REG]
+SELECT * FROM [10.Oct_Data_25].[dbo].[IB_REG_UPDATE]
 WHERE [Consignment Status]='Completed'
 UNION 
-SELECT * FROM July_Data.[dbo].[IB_YGN]
+SELECT * FROM [10.Oct_Data_25].[dbo].[IB_YGN]
 WHERE [Consignment Status]='Completed'
 )
-SELECT 'July' as Month,[Destination Branch],[Deliveryman],
+SELECT 'Oct' as Month,[Destination Branch],[Deliveryman],
 [Consignment Status],count(*) as Total
 FROM CTE_Table
-WHERE [Destination Branch] = 'TTN'
+WHERE [Destination Branch] = 'ysg'
 	--AND
 	--[Deliveryman] = 'LaMinKhant‌TTN'
 GROUP BY [Destination Branch],[Deliveryman],[Consignment Status]
@@ -47,22 +47,22 @@ ORDER BY [Destination Branch] asc
 
 
 with CTE_Table as (
-SELECT * FROM Sep_Data.[dbo].[IB_MDY]
+SELECT * FROM [11.Nov_Data_25].[dbo].[IB_MDY]
 WHERE [Consignment Status]='Completed'
 UNION 
-SELECT * FROM Sep_Data.[dbo].[IB_NPW]
+SELECT * FROM [11.Nov_Data_25].[dbo].[IB_NPW]
 WHERE [Consignment Status]='Completed'
 UNION 
-SELECT * FROM Sep_Data.[dbo].[IB_REG]
+SELECT * FROM [11.Nov_Data_25].[dbo].[IB_REG]
 WHERE [Consignment Status]='Completed'
 UNION 
-SELECT * FROM Sep_Data.[dbo].[IB_YGN]
+SELECT * FROM [11.Nov_Data_25].[dbo].[IB_YGN]
 WHERE [Consignment Status]='Completed'
 )
-SELECT 'Sep' as Month,[Destination Branch],[Deliveryman],
+SELECT 'Nov' as Month,[Destination Branch],[Deliveryman],
 [Consignment Status],count(*) as Total
 FROM CTE_Table
-WHERE [Destination Branch] IN ('MYK','KTG','MWD')
+WHERE [Destination Branch] = 'ysg'
 	--AND
 	--[Deliveryman] = 'LaMinKhant‌TTN'
 GROUP BY [Destination Branch],[Deliveryman],[Consignment Status]

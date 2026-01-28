@@ -9,7 +9,7 @@ SELECT
     ,[Service Type]
     ,[Status]
   FROM 
-	[12.Dec 25].[dbo].[4 Dec OB]
+	[12.Dec 25].[dbo].[22 Dec OB]
   where 
   --[From City] = 'Mandalay'
   --OR
@@ -19,7 +19,6 @@ SELECT
   --OR
   --[From City] = 'Patheingyi'
   Branch LIKE 'MDY-%'
-  
    OR
   [From City] IN (
   -- MGY Region

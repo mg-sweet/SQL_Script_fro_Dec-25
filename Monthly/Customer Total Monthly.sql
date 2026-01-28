@@ -1,16 +1,15 @@
-with CTE_IB as(
-select * from [12.Dec_Data_25].[dbo].[IB_MDY]
+with CTE_OB as(
+select * from [11.Nov_Data_25].[dbo].[OB_MDY]
 union
-select * from [12.Dec_Data_25].[dbo].[IB_NPW]
+select * from [11.Nov_Data_25].[dbo].[OB_NPW]
 union 
-select * from [12.Dec_Data_25].[dbo].[IB_REG]
+select * from [11.Nov_Data_25].[dbo].[OB_REG]
 union 
-select * from [12.Dec_Data_25].[dbo].[IB_YGN]
+select * from [11.Nov_Data_25].[dbo].[OB_YGN]
 )
-select 
---Month([Date]) as Month,
-'Dec' as Month,
-[To City],
+select [Date],[Waybill No#],[From City],
+[Origin Branch],[Customer Reference No#],[Customer],
+[To City],[Service Type],
 case 
 when SUBSTRING([Customer Reference No#],1,1)='I' then 'I'
 when SUBSTRING([Customer Reference No#],1,1)='E' then 'E'
@@ -20,8 +19,5 @@ when SUBSTRING([Customer Reference No#],1,1)='B' then 'BP'
 when SUBSTRING([Customer Reference No#],1,2)='CC' then 'CC'
 when SUBSTRING([Customer Reference No#],1,1) is NULL then 'I'
 when SUBSTRING([Customer Reference No#],1,1)='C' then 'I'
-end as Customer_Type,count(distinct [Waybill No#]) as Total
-from CTE_IB
---WHERE [Customer Reference No#] IS NULL AND [Waybill No#] IS NULL
-Group by [To City],[Customer Reference No#]
-order by [To City] asc
+end as Customer_Type 
+from CTE_OB 
